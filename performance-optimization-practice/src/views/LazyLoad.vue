@@ -18,10 +18,7 @@
             <HeavyComponent />
           </template>
           <template #fallback>
-            <div class="loading-placeholder">
-              <div class="loading"></div>
-              <p>组件加载中...</p>
-            </div>
+            <SkeletonCard :delay="0" :auto-load="false" />
           </template>
         </Suspense>
       </div>
@@ -124,6 +121,7 @@
 import { ref, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { useIntersectionObserver } from '@/composables/useIntersectionObserver'
+import SkeletonCard from '@/components/SkeletonCard.vue'
 
 // 组件懒加载
 const HeavyComponent = defineAsyncComponent(() =>
@@ -211,18 +209,7 @@ const prefetchRoute = async (routePath) => {
 }
 
 .component-lazy-demo {
-  .loading-placeholder {
-    margin-top: 1.5rem;
-    padding: 2rem;
-    text-align: center;
-    background: #f8f9fa;
-    border-radius: 8px;
-    
-    p {
-      margin-top: 1rem;
-      color: #666;
-    }
-  }
+  margin-top: 1.5rem;
 }
 
 .observer-demo {
