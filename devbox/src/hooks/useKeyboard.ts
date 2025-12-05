@@ -24,8 +24,6 @@ export function useKeyboard(
     
     for (const opt of optionsArray) {
       const matchKey = event.key.toLowerCase() === opt.key.toLowerCase()
-      const matchCtrl = opt.ctrl ? event.ctrlKey : !event.ctrlKey
-      const matchMeta = opt.meta ? event.metaKey : !event.metaKey
       const matchShift = opt.shift ? event.shiftKey : !event.shiftKey
       const matchAlt = opt.alt ? event.altKey : !event.altKey
 

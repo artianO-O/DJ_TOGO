@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Copy, Check } from 'lucide-react'
 
 // 颜色转换工具函数
