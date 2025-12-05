@@ -8,7 +8,8 @@ import {
   Regex,
   Home,
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  Link
 } from 'lucide-react'
 import { useState } from 'react'
 import clsx from 'clsx'
@@ -29,6 +30,7 @@ const toolCategories = [
     tools: [
       { name: '时间戳转换', path: '/timestamp', icon: Clock },
       { name: 'Base64 转换', path: '/base64', icon: Binary },
+      { name: 'URI 编码', path: '/uri', icon: Link },
       { name: '颜色转换', path: '/color', icon: Palette },
     ]
   },

@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Search, Braces, Clock, Binary, Palette, FileText, Regex } from 'lucide-react'
+import { Search, Braces, Clock, Binary, Palette, FileText, Regex, Link } from 'lucide-react'
 import clsx from 'clsx'
 
 interface SearchModalProps {
@@ -14,6 +14,7 @@ const allTools = [
   { name: '正则测试器', path: '/regex', icon: Regex, keywords: ['正则', 'regex', '匹配'] },
   { name: '时间戳转换', path: '/timestamp', icon: Clock, keywords: ['时间', '时间戳', 'timestamp'] },
   { name: 'Base64 转换', path: '/base64', icon: Binary, keywords: ['base64', '编码', '解码'] },
+  { name: 'URI 编码', path: '/uri', icon: Link, keywords: ['uri', 'url', '编码', '解码', 'encode', 'decode'] },
   { name: '颜色转换', path: '/color', icon: Palette, keywords: ['颜色', 'color', 'hex', 'rgb'] },
   { name: 'Markdown 预览', path: '/markdown', icon: FileText, keywords: ['markdown', 'md', '预览'] },
 ]

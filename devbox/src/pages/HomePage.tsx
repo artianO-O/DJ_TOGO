@@ -9,7 +9,8 @@ import {
   ArrowRight,
   Zap,
   Shield,
-  Sparkles
+  Sparkles,
+  Link as LinkIcon
 } from 'lucide-react'
 
 // 工具列表
@@ -41,6 +42,13 @@ const tools = [
     path: '/base64', 
     icon: Binary,
     color: 'from-green-500 to-emerald-500'
+  },
+  { 
+    name: 'URI 编码', 
+    description: 'URL 编码与解码',
+    path: '/uri', 
+    icon: LinkIcon,
+    color: 'from-teal-500 to-cyan-500'
   },
   { 
     name: '颜色转换', 
