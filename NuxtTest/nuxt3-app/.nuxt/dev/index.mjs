@@ -1345,23 +1345,6 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
-const script = `
-if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
-  Object.defineProperty(window, '__NUXT_DEVTOOLS_TIME_METRIC__', {
-    value: {},
-    enumerable: false,
-    configurable: true,
-  })
-}
-window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
-`;
-
-const _GbgGmlXeaiXv2qc8mCSF3V9iuaWmdUsHSOdjpEmNEC8 = (function(nitro) {
-  nitro.hooks.hook("render:html", (htmlContext) => {
-    htmlContext.head.push(`<script>${script}<\/script>`);
-  });
-});
-
 const rootDir = "/Users/atian/Desktop/2025/DJ_TOGO/NuxtTest/nuxt3-app";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
@@ -1455,8 +1438,7 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _GbgGmlXeaiXv2qc8mCSF3V9iuaWmdUsHSOdjpEmNEC8,
-_VSd7f4E49WlgitKF9_7vTlv6sM05BrWWbHb1XUwyxGo
+  _VSd7f4E49WlgitKF9_7vTlv6sM05BrWWbHb1XUwyxGo
 ];
 
 const assets = {};
@@ -1589,7 +1571,7 @@ function createSSRContext(event) {
     url: event.path,
     event,
     runtimeConfig: useRuntimeConfig(event),
-    noSSR: event.context.nuxt?.noSSR || (false),
+    noSSR: true,
     head: createHead(unheadOptions),
     error: false,
     nuxt: void 0,
@@ -1620,7 +1602,7 @@ function publicAssetsURL(...path) {
 
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => import('file:///Users/atian/Desktop/2025/DJ_TOGO/NuxtTest/nuxt3-app/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getServerEntry = () => Promise.resolve().then(function () { return server$1; }).then((r) => r.default || r);
 const getClientManifest = () => import('file:///Users/atian/Desktop/2025/DJ_TOGO/NuxtTest/nuxt3-app/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const createSSRApp = await getServerEntry();
@@ -1690,7 +1672,7 @@ function lazyCachedFunction(fn) {
   };
 }
 function getRenderer(ssrContext) {
-  return ssrContext.noSSR ? getSPARenderer() : getSSRRenderer();
+  return getSPARenderer() ;
 }
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 
@@ -2106,7 +2088,7 @@ parentPort?.on("message", (msg) => {
   }
 });
 const nitroApp = useNitroApp();
-const server = new Server(toNodeListener(nitroApp.h3App));
+const server$2 = new Server(toNodeListener(nitroApp.h3App));
 let listener;
 listen().catch(() => listen(
   true
@@ -2146,8 +2128,8 @@ function listen(useRandomPort = Boolean(
 )) {
   return new Promise((resolve, reject) => {
     try {
-      listener = server.listen(useRandomPort ? 0 : getSocketAddress(), () => {
-        const address = server.address();
+      listener = server$2.listen(useRandomPort ? 0 : getSocketAddress(), () => {
+        const address = server$2.address();
         parentPort?.postMessage({
           event: "listen",
           address: typeof address === "string" ? { socketPath: address } : { host: "localhost", port: address?.port }
@@ -2173,7 +2155,7 @@ function getSocketAddress() {
   return join(tmpdir(), socketName);
 }
 async function shutdown() {
-  server.closeAllConnections?.();
+  server$2.closeAllConnections?.();
   await Promise.all([
     new Promise((resolve) => listener?.close(resolve)),
     nitroApp.hooks.callHook("close").catch(console.error)
@@ -2190,6 +2172,13 @@ const template$1 = (messages) => {
 const error500 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   template: template$1
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const server = () => {};
+
+const server$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: server
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const template = "";
@@ -2223,7 +2212,7 @@ function renderPayloadJsonScript(opts) {
     "type": "application/json",
     "innerHTML": contents,
     "data-nuxt-data": appId,
-    "data-ssr": !(opts.ssrContext.noSSR)
+    "data-ssr": false
   };
   {
     payload.id = "__NUXT_DATA__";
@@ -2287,7 +2276,7 @@ const renderer = defineRenderHandler(async (event) => {
   if (routeOptions.ssr === false) {
     ssrContext.noSSR = true;
   }
-  const renderer = await getRenderer(ssrContext);
+  const renderer = await getRenderer();
   const _rendered = await renderer.renderToString(ssrContext).catch(async (error) => {
     if (ssrContext._renderResponse && error.message === "skipping render") {
       return {};
