@@ -1441,7 +1441,22 @@ const plugins = [
   _VSd7f4E49WlgitKF9_7vTlv6sM05BrWWbHb1XUwyxGo
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"15267-M9N/yoCyf+wYhW4QBoVRMX/Zr/8\"",
+    "mtime": "2025-12-30T08:18:01.244Z",
+    "size": 86631,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"51d2b-6Ktr7/8pzM6ls4rKp4prnjUZqpo\"",
+    "mtime": "2025-12-30T08:18:01.245Z",
+    "size": 335147,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -1851,10 +1866,14 @@ async function getIslandContext(event) {
   return ctx;
 }
 
+const _lazy_dxfxG4 = () => Promise.resolve().then(function () { return hello_get$1; });
+const _lazy_8lqCYQ = () => Promise.resolve().then(function () { return _id__get$1; });
 const _lazy_mRLh_J = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '', handler: _84hPm9, lazy: false, middleware: true, method: undefined },
+  { route: '/api/hello', handler: _lazy_dxfxG4, lazy: true, middleware: false, method: "get" },
+  { route: '/api/users/:id', handler: _lazy_8lqCYQ, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_mRLh_J, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_mRLh_J, lazy: true, middleware: false, method: undefined }
@@ -2193,6 +2212,44 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const hello_get = defineEventHandler((event) => {
+  return {
+    message: "Hello from Nuxt Server API!",
+    timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+    method: event.method
+  };
+});
+
+const hello_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: hello_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const users = [
+  { id: 1, name: "\u5F20\u4E09", email: "zhangsan@example.com", role: "admin" },
+  { id: 2, name: "\u674E\u56DB", email: "lisi@example.com", role: "user" },
+  { id: 3, name: "\u738B\u4E94", email: "wangwu@example.com", role: "user" }
+];
+const _id__get = defineEventHandler((event) => {
+  const id = Number(getRouterParam(event, "id"));
+  const user = users.find((u) => u.id === id);
+  if (!user) {
+    throw createError({
+      statusCode: 404,
+      message: `User with id ${id} not found`
+    });
+  }
+  return {
+    success: true,
+    data: user
+  };
+});
+
+const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _id__get
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

@@ -14,6 +14,8 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
+  'BaseButton': typeof import("../../app/components/BaseButton.vue").default
+  'BaseCard': typeof import("../../app/components/BaseCard.vue").default
   'NuxtWelcome': typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/welcome.vue").default
   'NuxtLayout': typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/nuxt-layout").default
   'NuxtErrorBoundary': typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue").default
@@ -37,6 +39,8 @@ interface _GlobalComponents {
   'Html': typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/head/runtime/components").Html
   'Body': typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/head/runtime/components").Body
   'NuxtIsland': typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/nuxt-island").default
+  'LazyBaseButton': LazyComponent<typeof import("../../app/components/BaseButton.vue").default>
+  'LazyBaseCard': LazyComponent<typeof import("../../app/components/BaseCard.vue").default>
   'LazyNuxtWelcome': LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/welcome.vue").default>
   'LazyNuxtLayout': LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/nuxt-layout").default>
   'LazyNuxtErrorBoundary': LazyComponent<typeof import("../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue").default>

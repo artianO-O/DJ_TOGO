@@ -98,6 +98,7 @@ declare global {
   const useAsyncData: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/asyncData').useAsyncData
   const useAttrs: typeof import('vue').useAttrs
   const useCookie: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/cookie').useCookie
+  const useCounter: typeof import('../../app/composables/useCounter').useCounter
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
   const useError: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/error').useError
@@ -110,6 +111,7 @@ declare global {
   const useLazyFetch: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/fetch').useLazyFetch
   const useLink: typeof import('vue-router').useLink
   const useLoadingIndicator: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/loading-indicator').useLoadingIndicator
+  const useLocalStorage: typeof import('../../app/composables/useLocalStorage').useLocalStorage
   const useModel: typeof import('vue').useModel
   const useNuxtApp: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/nuxt').useNuxtApp
   const useNuxtData: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/asyncData').useNuxtData
@@ -282,6 +284,7 @@ declare module 'vue' {
     readonly useAsyncData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/asyncData')['useAsyncData']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCookie: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/cookie')['useCookie']>
+    readonly useCounter: UnwrapRef<typeof import('../../app/composables/useCounter')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useError: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/error')['useError']>
@@ -294,6 +297,7 @@ declare module 'vue' {
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/fetch')['useLazyFetch']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useLoadingIndicator: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/loading-indicator')['useLoadingIndicator']>
+    readonly useLocalStorage: UnwrapRef<typeof import('../../app/composables/useLocalStorage')['useLocalStorage']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.1_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_ioredis@_7e801e45073b41cbae17519239ab62f3/node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
